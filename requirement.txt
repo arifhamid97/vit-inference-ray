@@ -1,0 +1,6 @@
+starlette
+uvicorn
+ray[serve]
+transformers[torch]
+pillow
+requests
