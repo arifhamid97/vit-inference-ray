@@ -1,1 +1,1 @@
-serve build vit_inference:my_app -o serve_config.yaml
+serve build vit_ray_config:my_app -o serve_config.yaml

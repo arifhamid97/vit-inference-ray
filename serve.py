@@ -22,7 +22,7 @@ HF_REPO = 'funkepal/vit-medicinal-plant-finetune'
 
 @serve.deployment(num_replicas=1, max_ongoing_requests=10)
 @serve.ingress(app)
-class SentimentAnalysis:
+class MedicinalPlantClassification:
     def __init__(self):
         self.processor = ViTImageProcessor.from_pretrained(LOCAL_MODEL_PATH, local_files_only=True)
         self.model = ViTForImageClassification.from_pretrained(LOCAL_MODEL_PATH, local_files_only=True)
@@ -54,7 +54,7 @@ class SentimentAnalysis:
 
 ray.init(address='local',num_gpus=1, num_cpus=1)
 ray.serve.start(http_options={'port':5000})
-my_app = SentimentAnalysis.bind()
+my_app = MedicinalPlantClassification.bind()
 ray.serve.run(target=my_app, blocking=True)
 
 

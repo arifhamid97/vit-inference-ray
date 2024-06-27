@@ -30,11 +30,12 @@ applications:
 
   route_prefix: /
 
-  import_path: vit_inference:my_app
+  import_path: vit_ray_config:my_app
 
   runtime_env: {}
 
   deployments:
 
-  - name: SentimentAnalysis
+  - name: MedicinalPlantClassification
     num_replicas: 1
+    max_ongoing_requests: 10
